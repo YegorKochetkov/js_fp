@@ -1,0 +1,19 @@
+{
+  "name": "js_fp",
+  "version": "1.0.0",
+  "description": "my functional programming lessons",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "keywords": [
+    "functional programming",
+    "javascript"
+  ],
+  "author": "Yegor Kochetkov",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "tailwindcss": "^3.3.3"
+  }
+}

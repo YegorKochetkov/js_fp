@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/public/index.js" defer></script>
+    <link href="/public/main.css" rel="stylesheet" />
+    <title>Functional programming</title>
+  </head>
+  <body>
+    <div class="container m-auto p-4">
+      <form class="flex gap-3">
+        <input
+          type="text"
+          class="p-2 border border-slate-500 rounded"
+          id="input"
+          placeholder="Enter a message"
+        />
+        <button
+          type="submit"
+          id="button"
+          class="px-4 bg-slate-200 border border-slate-400 rounded hover:bg-slate-300 active:bg-slate-100"
+        >
+          Add message
+        </button>
+      </form>
+      <section id="messages"></section>
+    </div>
+  </body>
+</html>

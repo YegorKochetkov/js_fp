@@ -2,4 +2,4 @@
 
 There's nothing interesting here :)
 
-I just keep my experiments with functional programming
+I'm just keeping my experiments with functional programming here

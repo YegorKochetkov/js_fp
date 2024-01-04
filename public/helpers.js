@@ -35,7 +35,9 @@ const getTextFromInput = () => getElementById("input").value.trim();
  * @param {string} value - The value to be set for the input element.
  * @returns {void} No return value.
  */
-const setTextToInput = (value) => (getElementById("input").value = value);
+const setTextToInput = (value) => {
+	getElementById("input").value = value;
+};
 
 /**
  * A curried version of the function that adds a specified class to an element's class list.
@@ -44,10 +46,10 @@ const setTextToInput = (value) => (getElementById("input").value = value);
  * @param {HTMLElement} element - The element to which the class will be added.
  * @returns {HTMLElement} The modified element with the specified class added to its class list.
  */
-const addClass = R.curry(function (className, element) {
-  element.classList.add(className);
+const addClass = R.curry((className, element) => {
+	element.classList.add(className);
 
-  return element;
+	return element;
 });
 
 /**
@@ -57,10 +59,10 @@ const addClass = R.curry(function (className, element) {
  * @param {HTMLElement} element - The element to which the node will be appended.
  * @returns {HTMLElement} The element with the node appended to it.
  */
-const appendChild = R.curry(function (node, element) {
-  element.appendChild(node);
+const appendChild = R.curry((node, element) => {
+	element.appendChild(node);
 
-  return element;
+	return element;
 });
 
 /**
@@ -72,10 +74,10 @@ const appendChild = R.curry(function (node, element) {
  * @param {HTMLElement} element - The HTML element on which the attribute will be set.
  * @returns {HTMLElement} The modified element with the specified attribute set.
  */
-const setAttribute = R.curry(function (attributeName, attributeValue, element) {
-  element.setAttribute(attributeName, attributeValue);
+const setAttribute = R.curry((attributeName, attributeValue, element) => {
+	element.setAttribute(attributeName, attributeValue);
 
-  return element;
+	return element;
 });
 
 /**
@@ -88,11 +90,11 @@ const setAttribute = R.curry(function (attributeName, attributeValue, element) {
  * @returns {function} A function that removes the event listener when called.
  */
 const on = R.curry((eventType, element, fn) => {
-  element.addEventListener(eventType, fn);
+	element.addEventListener(eventType, fn);
 
-  return function () {
-    element.removeEventListener(eventType, fn);
-  };
+	return () => {
+		element.removeEventListener(eventType, fn);
+	};
 });
 
 /**
@@ -102,7 +104,7 @@ const on = R.curry((eventType, element, fn) => {
  * @return {Element} The modified element with cleared content.
  */
 const clearElement = R.curry((element) => {
-  element.innerHTML = "";
+	element.innerHTML = "";
 
-  return element;
+	return element;
 });

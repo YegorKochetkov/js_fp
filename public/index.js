@@ -8,49 +8,49 @@
  * @param {string} data_message - The value of the `data-message` attribute for the new element.
  * @returns {HTMLElement} A new DOM element with the specified attributes and content.
  */
-const message = R.curry(function (message, data_message) {
-  return R.compose(
-    appendChild(createText(message)),
-    setAttribute("data-message", data_message),
-    addClass("text-bg-primary"),
-    addClass("p-3"),
-    addClass("mb-3"),
-    addClass("rounded")
-  )(createElement("div"));
-});
+const message = R.curry((message, data_message) =>
+	R.compose(
+		appendChild(createText(message)),
+		setAttribute("data-message", data_message),
+		addClass("text-bg-primary"),
+		addClass("p-3"),
+		addClass("mb-3"),
+		addClass("rounded"),
+	)(createElement("div")),
+);
 
 /**
  * Generates a view based on the given state.
  *
  * @param {Array} state - The state to generate the view from.
- * @return {HTMLElement} - The generated view element.
+ * @return {HTMLElement} The generated view element.
  */
 const view = (state) => {
-  const element = createElement("div");
+	const element = createElement("div");
 
-  const appendFunctions = state.map((content, index) =>
-    appendChild(message(content, index))
-  );
+	const appendFunctions = state.map((content, index) =>
+		appendChild(message(content, index)),
+	);
 
-  return state.length > 0
-    ? R.pipe(...appendFunctions)(createElement("div"))
-    : element;
+	return state.length > 0
+		? R.pipe(...appendFunctions)(createElement("div"))
+		: element;
 };
 
 function app(state, outputElement, dispatch) {
-  R.compose(appendChild(view(state)), clearElement())(outputElement);
+	R.compose(appendChild(view(state)), clearElement())(outputElement);
 
-  const stop = dispatch((event) => {
-    event.preventDefault();
-    stop();
+	const stop = dispatch((event) => {
+		event.preventDefault();
+		stop();
 
-    const newText = getTextFromInput();
-    const newState = newText.length > 0 ? [...state, newText] : state;
+		const newText = getTextFromInput();
+		const newState = newText.length > 0 ? [...state, newText] : state;
 
-    setTextToInput("");
+		setTextToInput("");
 
-    app(newState, outputElement, dispatch);
-  });
+		app(newState, outputElement, dispatch);
+	});
 }
 
 /**

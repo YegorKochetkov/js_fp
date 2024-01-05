@@ -11,6 +11,7 @@
   "author": "Yegor Kochetkov",
   "license": "ISC",
   "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
     "@types/ramda": "^0.29.4",
     "eslint": "^8.50.0"
   }

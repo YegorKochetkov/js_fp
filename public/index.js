@@ -1,12 +1,14 @@
 /**
  * A curried version of the function that creates a new DOM element with
  * specified attributes and classes, then appends it to another element.
- * Uses the `R.compose()` function from the Ramda library to apply a series of
- * transformations to the element in a functional and composable way.
+ * Uses the `R.compose()` function from the Ramda library to apply a series
+ * of transformations to the element in a functional and composable way.
  *
  * @param {string} message - The text content of the new element.
- * @param {string} data_message - The value of the `data-message` attribute for the new element.
- * @returns {HTMLElement} A new DOM element with the specified attributes and content.
+ * @param {string} data_message - The value of the `data-message` attribute
+ * for the new element.
+ * @returns {HTMLElement} A new DOM element with the specified attributes
+ * and content.
  */
 const message = R.curry((message, data_message) =>
 	R.compose(
@@ -16,11 +18,12 @@ const message = R.curry((message, data_message) =>
 		addClass("p-3"),
 		addClass("mb-3"),
 		addClass("rounded"),
+		addClass("w-75"),
 	)(createElement("div")),
 );
 
 /**
- * Generates a view based on the given state.
+ * Generates a view based on the given sta/te.
  *
  * @param {Array} state - The state to generate the view from.
  * @return {HTMLElement} The generated view element.
@@ -37,6 +40,17 @@ const view = (state) => {
 		: element;
 };
 
+/**
+ * Renders the application state to the specified output element and sets up
+ * event handling.
+ *
+ * @param {Object} state - The current state of the application.
+ * @param {HTMLElement} outputElement - The element where the application
+ * will be rendered.
+ * @param {function} dispatch - A function that handles events and updates
+ * the application state.
+ * @return {undefined} This function does not return a value.
+ */
 function app(state, outputElement, dispatch) {
 	R.compose(appendChild(view(state)), clearElement())(outputElement);
 
@@ -57,7 +71,8 @@ function app(state, outputElement, dispatch) {
  * Creates an event listener for a button click event.
  *
  * @param {string} eventType - The type of event to listen for (e.g. "click").
- * @param {Element} targetElement - The target element to attach the event listener to.
+ * @param {Element} targetElement - The target element to attach the event
+ * listener to.
  * @returns {EventListener} - The event listener for the button click event.
  */
 const buttonClick = on("click", getElementById("button"));

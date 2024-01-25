@@ -25,7 +25,8 @@ const getElementById = (id) => document.getElementById(id);
 /**
  * Retrieves the value of an input element with the id "input".
  *
- * @returns {string} The text entered by the user in the input element with the id "input".
+ * @returns {string} The text entered by the user in the input
+ * element with the id "input".
  */
 const getTextFromInput = () => getElementById("input").value.trim();
 
@@ -40,11 +41,14 @@ const setTextToInput = (value) => {
 };
 
 /**
- * A curried version of the function that adds a specified class to an element's class list.
+ * A curried version of the function that adds a specified class to
+ * an element's class list.
  *
  * @param {string} className - The name of the class to be added.
- * @param {HTMLElement} element - The element to which the class will be added.
- * @returns {HTMLElement} The modified element with the specified class added to its class list.
+ * @param {HTMLElement} element - The element to which the class will be
+ * added.
+ * @returns {HTMLElement} The modified element with the specified class
+ * added to its class list.
  */
 const addClass = R.curry((className, element) => {
 	element.classList.add(className);
@@ -53,10 +57,12 @@ const addClass = R.curry((className, element) => {
 });
 
 /**
- * A curried version of the function that appends a given node to a given element.
+ * A curried version of the function that appends a given node to a given
+ * element.
  *
  * @param {Node} node - The node to be appended to the element.
- * @param {HTMLElement} element - The element to which the node will be appended.
+ * @param {HTMLElement} element - The element to which the node will be
+ * appended.
  * @returns {HTMLElement} The element with the node appended to it.
  */
 const appendChild = R.curry((node, element) => {
@@ -66,13 +72,16 @@ const appendChild = R.curry((node, element) => {
 });
 
 /**
- * A curried version of the function that sets a specified attribute with a given value
+ * A curried version of the function that sets a specified attribute with
+ * a given value
  * on a given HTML element.
  *
  * @param {string} attributeName - The name of the attribute to be set.
  * @param {string} attributeValue - The value to be set for the attribute.
- * @param {HTMLElement} element - The HTML element on which the attribute will be set.
- * @returns {HTMLElement} The modified element with the specified attribute set.
+ * @param {HTMLElement} element - The HTML element on which the attribute
+ * will be set.
+ * @returns {HTMLElement} The modified element with the specified attribute
+ * set.
  */
 const setAttribute = R.curry((attributeName, attributeValue, element) => {
 	element.setAttribute(attributeName, attributeValue);
@@ -82,12 +91,16 @@ const setAttribute = R.curry((attributeName, attributeValue, element) => {
 
 /**
  * A curried version of the function that creates an event listener for
- * a specified event type on a given HTML element, and associates it with a callback function.
+ * a specified event type on a given HTML element, and associates it with
+ * a callback function.
  *
  * @param {string} eventType - The type of event to listen for.
- * @param {HTMLElement} element - The HTML element to attach the event listener to.
- * @param {function} fn - The callback function to be executed when the event is triggered.
- * @returns {function} A function that removes the event listener when called.
+ * @param {HTMLElement} element - The HTML element to attach
+ * the event listener to.
+ * @param {function} fn - The callback function to be executed when
+ * the event is triggered.
+ * @returns {function} A function that removes the event listener when
+ * called.
  */
 const on = R.curry((eventType, element, fn) => {
 	element.addEventListener(eventType, fn);
@@ -98,7 +111,8 @@ const on = R.curry((eventType, element, fn) => {
 });
 
 /**
- * A curried version of the function that clears the content of the given element.
+ * A curried version of the function that clears the content of
+ * the given element.
  *
  * @param {Element} element - The element whose content will be cleared.
  * @return {Element} The modified element with cleared content.
